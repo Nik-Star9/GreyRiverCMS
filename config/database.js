@@ -1,19 +1,11 @@
 module.exports = ({ env }) => ({
+  connection: {
+    client: 'postgres',
     connection: {
-      client: 'postgres',
-      connection: {
-        connectionString: env('postgresql://postgres:BvyXtfIekJibXJyIizaQXzMlwiBzGUyG@mainline.proxy.rlwy.net:49657/railway'),
-        ssl: env.bool('DATABASE_SSL', true) ? { rejectUnauthorized: false } : false,
+      connectionString: env('postgres:BvyXtfIekJibXJyIizaQXzMlwiBzGUyG@mainline.proxy.rlwy.net:49657/railway'),
+      ssl: {
+        rejectUnauthorized: false, // Allows self-signed SSL certificates
       },
     },
-  });
-  module.exports = ({ env }) => ({
-    connection: {
-      client: 'postgres',
-      connection: {
-        connectionString: env('postgresql://postgres:BvyXtfIekJibXJyIizaQXzMlwiBzGUyG@postgres.railway.internal:5432/railway'),
-        ssl: env.bool('DATABASE_SSL', true) ? { rejectUnauthorized: false } : false,
-      },
-    },
-  });
-  
+  },
+});
