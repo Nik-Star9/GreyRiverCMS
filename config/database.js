@@ -2,10 +2,10 @@ module.exports = ({ env }) => ({
   connection: {
     client: 'postgres',
     connection: {
-      connectionString: env('postgres:BvyXtfIekJibXJyIizaQXzMlwiBzGUyG@mainline.proxy.rlwy.net:49657/railway'),
-      ssl: env.bool('DATABASE_SSL', false)
-      ? { rejectUnauthorized: false }
-      : false,
+      connectionString: env('postgresql://postgres:BvyXtfIekJibXJyIizaQXzMlwiBzGUyG@postgres.railway.internal:5432/railway'),
+      ssl: {
+        rejectUnauthorized: false, // Bypasses SSL certificate errors
+      },
     },
   },
 });
