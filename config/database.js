@@ -11,7 +11,7 @@ module.exports = ({ env }) => ({
     connection: {
       client: 'postgres',
       connection: {
-        connectionString: env('DATABASE_URL'),
+        connectionString: env('postgresql://postgres:BvyXtfIekJibXJyIizaQXzMlwiBzGUyG@postgres.railway.internal:5432/railway'),
         ssl: env.bool('DATABASE_SSL', true) ? { rejectUnauthorized: false } : false,
       },
     },
